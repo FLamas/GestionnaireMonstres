@@ -1,22 +1,54 @@
 package gestionnairedemonstre;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 import com.example.user.gestionnairedemonstres.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import gestionnairedemonstre.adapters.ListViewMonsterAdapter;
+import gestionnairedemonstre.ennemies.Monster;
+import gestionnairedemonstre.listeners.ListViewMonsterListener;
+
 /**
- * Main classe.
+ * Main activity class.
+ *
+ * @author FLamas
+ * @author SGirousse
  */
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
+
+    /** A List of Monsters showed on the screen. */
+    private List<Monster> _monsters;
+
+    /** An adapter to the monsters list view. */
+    private ListViewMonsterAdapter _listViewMonsterAdapter;
+
+    /** A listener to events on the monsters list view. */
+    private ListViewMonsterListener _listViewMonsterListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        _monsters = new ArrayList<>();
 
+        //Monsters list view.
+        ListView lv_monsters = (ListView) findViewById(R.id.listViewMonsters);
+
+
+        // -- Adapters -- //
+        _listViewMonsterAdapter = new ListViewMonsterAdapter(this, R.layout.monster_layout, _monsters);
+        lv_monsters.setAdapter(_listViewMonsterAdapter);
+
+        // -- Listeners -- //
+        _listViewMonsterListener = new ListViewMonsterListener(this, _monsters);
+        lv_monsters.setOnItemClickListener(_listViewMonsterListener);
     }
 
     @Override
@@ -41,4 +73,19 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Monster list getter.
+     * @return List of monsters.
+     */
+    public List<Monster> get_monsters() {
+        return _monsters;
+    }
+
+    /**
+     * Monster list setter.
+     * @param _monsters List of monsters.
+     */
+    public void set_monsters(List<Monster> _monsters) {
+        this._monsters = _monsters;
+    }
 }
