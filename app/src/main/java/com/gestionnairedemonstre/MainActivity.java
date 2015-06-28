@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.gestionnairedemonstre.R.id;
 import com.gestionnairedemonstre.R.layout;
+import com.gestionnairedemonstre.R.menu;
 import com.gestionnairedemonstre.adapters.ListViewMonsterAdapter;
 import com.gestionnairedemonstre.listeners.ButtonAddMonsterListener;
 import com.gestionnairedemonstre.listeners.ListViewMonsterListener;
@@ -68,25 +69,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu pMenu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(menu.menu_main, pMenu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem pItem) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int itemId = pItem.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (itemId == id.action_settings) {
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(pItem);
     }
 
     /**
