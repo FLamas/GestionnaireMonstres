@@ -1,44 +1,41 @@
-package gestionnairedemonstre.adapters;
+package com.gestionnairedemonstre.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.text.Spannable;
-import android.text.Spanned;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.gestionnairedemonstre.pojo.monsters.Monster;
+
 import java.util.List;
-import java.util.Locale;
-
-import gestionnairedemonstre.ennemies.Monster;
 
 /**
  * Monster list view item adapter class.
+ *
  * @author SGirousse
  */
 public class ListViewMonsterAdapter extends ArrayAdapter<Monster> {
 
-    /** Application context. */
-    private Context _context;
+    /**
+     * Application context.
+     */
+    private final Context _context;
 
-    /** Layout id. */
-    private int _layoutId;
+    /**
+     * Layout id.
+     */
+    private final int _layoutId;
 
-    /** List of monsters. */
-    private List<Monster> _monsters;
+    /**
+     * List of monsters.
+     */
+    private final List<Monster> _monsters;
 
     /**
      * Default constructor.
      *
-     * @param pContext Application context.
+     * @param pContext  Application context.
      * @param pLayoutId Id of layout.
      * @param pMonsters List of Monsters.
      */

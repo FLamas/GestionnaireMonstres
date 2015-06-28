@@ -1,19 +1,21 @@
-package gestionnairedemonstre;
+package com.gestionnairedemonstre;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.user.gestionnairedemonstres.R;
+import com.gestionnairedemonstre.R.id;
+import com.gestionnairedemonstre.R.layout;
+import com.gestionnairedemonstre.adapters.ListViewMonsterAdapter;
+import com.gestionnairedemonstre.listeners.ButtonAddMonsterListener;
+import com.gestionnairedemonstre.listeners.ListViewMonsterListener;
+import com.gestionnairedemonstre.pojo.monsters.Monster;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import gestionnairedemonstre.adapters.ListViewMonsterAdapter;
-import gestionnairedemonstre.ennemies.Monster;
-import gestionnairedemonstre.listeners.ListViewMonsterListener;
 
 /**
  * Main activity class.
@@ -21,40 +23,54 @@ import gestionnairedemonstre.listeners.ListViewMonsterListener;
  * @author FLamas
  * @author SGirousse
  */
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
-    /** A List of Monsters showed on the screen. */
+    /**
+     * A List of Monsters showed on the screen.
+     */
     private List<Monster> _monsters;
 
-    /** An adapter to the monsters list view. */
+    /**
+     * An adapter to the monsters list view.
+     */
     private ListViewMonsterAdapter _listViewMonsterAdapter;
 
-    /** A listener to events on the monsters list view. */
+    /**
+     * A listener to events on the monsters list view.
+     */
     private ListViewMonsterListener _listViewMonsterListener;
+
+    /**
+     * A listener to events on the add monster button.
+     */
+    private ButtonAddMonsterListener _buttonAddMonsterListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(layout.activity_main);
         _monsters = new ArrayList<>();
 
-        //Monsters list view.
-        ListView lv_monsters = (ListView) findViewById(R.id.listViewMonsters);
-
+        // -- GUI elements -- //
+        ListView lv_monsters = (ListView) findViewById(id.listViewMonsters);
+        Button button_addMonster = (Button) findViewById(id.addMonster);
 
         // -- Adapters -- //
-        _listViewMonsterAdapter = new ListViewMonsterAdapter(this, R.layout.monster_layout, _monsters);
+        _listViewMonsterAdapter = new ListViewMonsterAdapter(this, layout.monster_layout, _monsters);
         lv_monsters.setAdapter(_listViewMonsterAdapter);
 
         // -- Listeners -- //
         _listViewMonsterListener = new ListViewMonsterListener(this, _monsters);
         lv_monsters.setOnItemClickListener(_listViewMonsterListener);
+
+        _buttonAddMonsterListener = new ButtonAddMonsterListener(this);
+        button_addMonster.setOnClickListener(_buttonAddMonsterListener);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(menu.menu_main, menu);
         return true;
     }
 
@@ -66,7 +82,7 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == id.action_settings) {
             return true;
         }
 
@@ -75,6 +91,7 @@ public class MainActivity extends Activity {
 
     /**
      * Monster list getter.
+     *
      * @return List of monsters.
      */
     public List<Monster> get_monsters() {
@@ -83,6 +100,7 @@ public class MainActivity extends Activity {
 
     /**
      * Monster list setter.
+     *
      * @param _monsters List of monsters.
      */
     public void set_monsters(List<Monster> _monsters) {
