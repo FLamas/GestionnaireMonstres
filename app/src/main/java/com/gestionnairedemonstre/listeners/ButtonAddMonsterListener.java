@@ -6,7 +6,7 @@ import android.view.View.OnClickListener;
 import com.gestionnairedemonstre.MainActivity;
 
 /**
- * Listener to click on Button in charge of adding new Monster.
+ * Listener to click on Button in charge of adding new Monstre.
  *
  * @author SGirousse
  */

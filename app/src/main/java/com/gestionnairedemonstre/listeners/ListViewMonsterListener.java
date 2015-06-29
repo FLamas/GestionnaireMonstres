@@ -6,12 +6,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.gestionnairedemonstre.MainActivity;
-import com.gestionnairedemonstre.pojo.monsters.Monster;
+import com.gestionnairedemonstre.pojo.monsters.Monstre;
 
 import java.util.List;
 
 /**
- * Monster list view item listener class.
+ * Monstre list view item listener class.
  *
  * @author SGirousse
  */
@@ -23,19 +23,19 @@ public class ListViewMonsterListener implements OnItemClickListener {
     private final MainActivity _MainActivity;
 
     /**
-     * The Monster list which populate the List view.
+     * The Monstre list which populate the List view.
      */
-    private final List<Monster> _monsters;
+    private final List<Monstre> _monstres;
 
     /**
      * Default constructor.
      *
      * @param pMainActivity MainActivity Activity.
-     * @param pMonsters     List of Monsters from the activity.
+     * @param pMonstres     List of Monsters from the activity.
      */
-    public ListViewMonsterListener(MainActivity pMainActivity, List<Monster> pMonsters) {
+    public ListViewMonsterListener(MainActivity pMainActivity, List<Monstre> pMonstres) {
         _MainActivity = pMainActivity;
-        _monsters = pMonsters;
+        _monstres = pMonstres;
     }
 
     @Override

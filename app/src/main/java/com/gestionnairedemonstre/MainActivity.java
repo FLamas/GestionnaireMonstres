@@ -13,7 +13,7 @@ import com.gestionnairedemonstre.R.menu;
 import com.gestionnairedemonstre.adapters.ListViewMonsterAdapter;
 import com.gestionnairedemonstre.listeners.ButtonAddMonsterListener;
 import com.gestionnairedemonstre.listeners.ListViewMonsterListener;
-import com.gestionnairedemonstre.pojo.monsters.Monster;
+import com.gestionnairedemonstre.pojo.monsters.Monstre;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * A List of Monsters showed on the screen.
      */
-    private List<Monster> _monsters;
+    private List<Monstre> _monstres;
 
     /**
      * An adapter to the monsters list view.
@@ -50,18 +50,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_main);
-        _monsters = new ArrayList<>();
+        _monstres = new ArrayList<>();
 
         // -- GUI elements -- //
         ListView lv_monsters = (ListView) findViewById(id.listViewMonsters);
         Button button_addMonster = (Button) findViewById(id.addMonster);
 
         // -- Adapters -- //
-        _listViewMonsterAdapter = new ListViewMonsterAdapter(this, layout.monster_layout, _monsters);
+        _listViewMonsterAdapter = new ListViewMonsterAdapter(this, layout.monster_layout, _monstres);
         lv_monsters.setAdapter(_listViewMonsterAdapter);
 
         // -- Listeners -- //
-        _listViewMonsterListener = new ListViewMonsterListener(this, _monsters);
+        _listViewMonsterListener = new ListViewMonsterListener(this, _monstres);
         lv_monsters.setOnItemClickListener(_listViewMonsterListener);
 
         _buttonAddMonsterListener = new ButtonAddMonsterListener(this);
@@ -91,20 +91,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Monster list getter.
+     * Monstre list getter.
      *
      * @return List of monsters.
      */
-    public List<Monster> get_monsters() {
-        return _monsters;
+    public List<Monstre> get_monstres() {
+        return _monstres;
     }
 
     /**
-     * Monster list setter.
+     * Monstre list setter.
      *
-     * @param _monsters List of monsters.
+     * @param _monstres List of monsters.
      */
-    public void set_monsters(List<Monster> _monsters) {
-        this._monsters = _monsters;
+    public void set_monstres(List<Monstre> _monstres) {
+        this._monstres = _monstres;
     }
 }

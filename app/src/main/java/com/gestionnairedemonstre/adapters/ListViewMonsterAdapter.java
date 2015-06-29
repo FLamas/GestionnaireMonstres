@@ -6,16 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-import com.gestionnairedemonstre.pojo.monsters.Monster;
+import com.gestionnairedemonstre.pojo.monsters.Monstre;
 
 import java.util.List;
 
 /**
- * Monster list view item adapter class.
+ * Monstre list view item adapter class.
  *
  * @author SGirousse
  */
-public class ListViewMonsterAdapter extends ArrayAdapter<Monster> {
+public class
+        ListViewMonsterAdapter extends ArrayAdapter<Monstre> {
 
     /**
      * Application context.
@@ -30,21 +31,21 @@ public class ListViewMonsterAdapter extends ArrayAdapter<Monster> {
     /**
      * List of monsters.
      */
-    private final List<Monster> _monsters;
+    private final List<Monstre> _monstres;
 
     /**
      * Default constructor.
      *
      * @param pContext  Application context.
      * @param pLayoutId Id of layout.
-     * @param pMonsters List of Monsters.
+     * @param pMonstres List of Monsters.
      */
-    public ListViewMonsterAdapter(Context pContext, int pLayoutId, List<Monster> pMonsters) {
-        super(pContext, pLayoutId, pMonsters);
+    public ListViewMonsterAdapter(Context pContext, int pLayoutId, List<Monstre> pMonstres) {
+        super(pContext, pLayoutId, pMonstres);
 
         _context = pContext;
         _layoutId = pLayoutId;
-        _monsters = pMonsters;
+        _monstres = pMonstres;
     }
 
     @Override
@@ -52,7 +53,7 @@ public class ListViewMonsterAdapter extends ArrayAdapter<Monster> {
         LayoutInflater layoutInflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         pConvertView = layoutInflater.inflate(_layoutId, pParent, false);
 
-        Monster m = _monsters.get(pPosition);
+        Monstre m = _monstres.get(pPosition);
 
         // TODO update monster_layout view.
 
