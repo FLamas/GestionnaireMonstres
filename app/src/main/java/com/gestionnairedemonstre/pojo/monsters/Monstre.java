@@ -2,26 +2,51 @@ package com.gestionnairedemonstre.pojo.monsters;
 
 /**
  * A representation of a Monstre.
+ *
+ * @author FLamas
  */
 public class Monstre {
-    /*liste des attributs de base des monstres*/
+    /**
+     * Nom du monstre.
+     */
     private String _nomMonstre;
-    private String _classeMonstre; /*il s'agit de la "famille" du monstre : Humain, Animal, Mort-vivant, Divers*/
+
+    /**
+     * Il s'agit de la famille du monstre : Humain, Animal, Mort-vivant, Divers.
+     */
+    private String _classeMonstre;
+
+    /**
+     * Points de vie du monstre.
+     */
     private int _pointsVie;
+
+    /**
+     * Points de degat du monstre.
+     */
     private int _pointsDegats;
 
-    /*constructeur par défaut de la classe Monstre*/
+    /**
+     * Constructeur par defaut. Un monstre de base sera initialisÃ©.
+     */
     public Monstre(){
-        System.out.println("Création d'un vilain en cours...");
+        System.out.println("Creation d'un vilain en cours...");
         _nomMonstre = "Minion";
         _classeMonstre = "Minion";
         _pointsVie = 10;
         _pointsDegats = 1;
     }
 
-    /*constructeur surchargé avec paramètres*/
+    /**
+     * Constructeur avec tous les parametres pour initialisation du monstre.
+     *
+     * @param pNom Nom du monstre.
+     * @param pClasse Classe/Famille du monstre.
+     * @param pHP Points de vie du monstre.
+     * @param pDP Points de degats du monstre.
+     */
     public Monstre(String pNom, String pClasse, int pHP, int pDP){
-        System.out.println("Création d'un vilain avec des paramètres en cours...");
+        System.out.println("Creation d'un vilain avec des parametres en cours...");
         _nomMonstre = pNom;
         _classeMonstre = pClasse;
         _pointsVie = pHP;
@@ -29,32 +54,40 @@ public class Monstre {
     }
 
     /**
-     * Getteurs de la classe Monstre
-     * seront utilisés dans les méthodes afin de récupérer les valeurs désirées de l'objet instancié.
+     * Getter du nom.
+     * @return Nom du monstre.
      */
-
     public String get_nomMonstre() {
         return _nomMonstre;
     }
+
+    /**
+     * Getter classe/famille.
+     * @return Classe/Famille du monstre.
+     */
     public String get_classeMonstre() {
         return _classeMonstre;
     }
+
+    /**
+     * Getter points de vie.
+     * @return Points de vie restant du monstre.
+     */
     public int get_pointsVie() {
         return _pointsVie;
     }
-    public int get_pointsDegats() {
+
+    /**
+     * Getter points de degats.
+     * @return Points de degats effectues par le monstre.
+     */
+    public int get_pointsDegats(){
         return _pointsDegats;
     }
 
     /**
-     * Méthodes de la classe Monstre
-     * ces méthodes sont implémentées ici car elles seront communes à tous les monstres, qu'ils soient stylés ou non.
-     */
-
-    /**
-     * Ici je ne sais pas trop comment l'appli va gérer les entrées. Je voyais un truc genre quand un joueur attaque un monstre, l'appli propose un pannel de dégâts
-     * (ex : 10/15/20/25/30/35/40/50) et le MJ choisit les dégâts appropriés, et dans ce cas là je suppose qu'il s'agit d'une entrée "clavier". Donc je ne sais pas trop quoi mettre ici.
-     * @param pDegatsArme
+     * Gestion d un coup recu par le monstre avec une certaine valeur de degats d arme.
+     * @param pDegatsArme Les degats de l arme frappant le monstre.
      */
     public int PerdrePointsVie(int pDegatsArme){
         _pointsVie = _pointsVie - pDegatsArme;
@@ -65,15 +98,4 @@ public class Monstre {
 
         return _pointsVie;
     }
-
-    /**
-     * Méthode qui servira à afficher à l'écran du MJ le nombre de dégâts qu'un monstre inflige à un joueur. Peut être afficher une liste de tous les joueurs et du
-     * total des dégâts que chacun d'eux subit à chaque tour. Je me demandais aussi si on ne pourrait pas faire une oetite fonction pour choisir un nombre entre 1 et le nb max de joueur
-     * comme ça c'est le programme qui choisit aléatoirement la cible de chaque attaque.
-     */
-    public int Attaquer(){
-             //je n'arrive pas à caster le int des dégâts en string
-        //System.out.println("Le joueur subit " + get_pointsDegats() + " points de dégâts");
-    }
-
 }
