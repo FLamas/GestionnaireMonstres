@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Gestionnaire de monstres</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="progress_bar_life_points">Points de vie</string>
+    <string name="default_monsterName">Nom du monstre</string>
+    <string name="default_monsterAttackPoints">Points de dégâts : </string>
+    <string name="default_monsterAttackPointsValue">0</string>
+    <string name="default_monsterLifePointsValue">0</string>
 </resources>

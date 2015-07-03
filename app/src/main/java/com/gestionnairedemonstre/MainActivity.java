@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(layout.activity_main);
         _monstres = new ArrayList<>();
 
+//        _monstres.add(new Monstre());
+//        _monstres.add(new Monstre());
+//        _monstres.add(new Monstre());
+
         // -- GUI elements -- //
         ListView lv_monsters = (ListView) findViewById(id.listViewMonsters);
         Button button_addMonster = (Button) findViewById(id.addMonster);

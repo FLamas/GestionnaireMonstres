@@ -11,11 +11,25 @@
         android:layout_width="195dp"
         android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:ems="10"
-        android:inputType="number" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/default_monsterName"
+        android:id="@+id/textViewMonsterName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/default_monsterAttackPointsValue"
+        android:id="@+id/textViewMonsterAttackPoints" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/default_monsterLifePointsValue"
+        android:id="@+id/textViewMonsterLifePoints" />
+
 </LinearLayout>
