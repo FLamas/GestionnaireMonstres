@@ -7,4 +7,5 @@
     <string name="default_monsterAttackPoints">Points de dégâts : </string>
     <string name="default_monsterAttackPointsValue">0</string>
     <string name="default_monsterLifePointsValue">0</string>
+    <string name="default_monsterFamily">Pas de famille</string>
 </resources>

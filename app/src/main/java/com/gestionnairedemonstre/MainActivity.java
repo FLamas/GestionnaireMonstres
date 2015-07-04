@@ -13,6 +13,7 @@ import com.gestionnairedemonstre.R.menu;
 import com.gestionnairedemonstre.adapters.ListViewMonsterAdapter;
 import com.gestionnairedemonstre.listeners.ButtonAddMonsterListener;
 import com.gestionnairedemonstre.listeners.ListViewMonsterListener;
+import com.gestionnairedemonstre.pojo.monsters.Boss;
 import com.gestionnairedemonstre.pojo.monsters.Monstre;
 
 import java.util.ArrayList;
@@ -52,9 +53,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(layout.activity_main);
         _monstres = new ArrayList<>();
 
-//        _monstres.add(new Monstre());
-//        _monstres.add(new Monstre());
-//        _monstres.add(new Monstre());
+
+        _monstres.add(new Monstre());
+        _monstres.add(new Monstre());
+        _monstres.add(new Boss());
 
         // -- GUI elements -- //
         ListView lv_monsters = (ListView) findViewById(id.listViewMonsters);

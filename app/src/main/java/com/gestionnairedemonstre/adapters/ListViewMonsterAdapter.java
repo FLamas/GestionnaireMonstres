@@ -65,6 +65,9 @@ public class
         TextView textViewMonsterAP = (TextView) pConvertView.findViewById(R.id.textViewMonsterAttackPoints);
         textViewMonsterAP.setText(Integer.toString(m.get_pointsDegats()));
 
+        TextView textViewMonsterFamily = (TextView) pConvertView.findViewById(R.id.textViewMonsterFamily);
+        textViewMonsterFamily.setText(m.get_classeMonstre().get_textValue());
+
         return pConvertView;
     }
 }

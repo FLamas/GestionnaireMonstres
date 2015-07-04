@@ -14,7 +14,7 @@ public class Monstre {
     /**
      * Il s'agit de la famille du monstre : Humain, Animal, Mort-vivant, Divers.
      */
-    private String _classeMonstre;
+    private FamilleMonstre _classeMonstre;
 
     /**
      * Points de vie du monstre.
@@ -32,7 +32,7 @@ public class Monstre {
     public Monstre(){
         System.out.println("Creation d'un vilain en cours...");
         _nomMonstre = "Minion";
-        _classeMonstre = "Minion";
+        _classeMonstre = FamilleMonstre.HUMAIN;
         _pointsVie = 10;
         _pointsDegats = 1;
     }
@@ -45,7 +45,7 @@ public class Monstre {
      * @param pHP Points de vie du monstre.
      * @param pDP Points de degats du monstre.
      */
-    public Monstre(String pNom, String pClasse, int pHP, int pDP){
+    public Monstre(String pNom, FamilleMonstre pClasse, int pHP, int pDP){
         System.out.println("Creation d'un vilain avec des parametres en cours...");
         _nomMonstre = pNom;
         _classeMonstre = pClasse;
@@ -65,7 +65,7 @@ public class Monstre {
      * Getter classe/famille.
      * @return Classe/Famille du monstre.
      */
-    public String get_classeMonstre() {
+    public FamilleMonstre get_classeMonstre() {
         return _classeMonstre;
     }
 
